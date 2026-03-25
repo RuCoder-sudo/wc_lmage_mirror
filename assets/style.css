@@ -1,0 +1,321 @@
+/* WC Image Mirror — Admin Styles */
+
+.wcim-wrap {
+    max-width: 1400px;
+}
+
+.wcim-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px !important;
+    margin-bottom: 20px !important;
+}
+
+.wcim-icon {
+    font-size: 28px;
+}
+
+/* Уведомление */
+.wcim-notice {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid;
+}
+
+.wcim-notice-info {
+    background: #e8f4fd;
+    border-color: #2271b1;
+    color: #1d4a73;
+}
+
+/* Toolbar */
+.wcim-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.wcim-btn-load {
+    font-size: 14px !important;
+    padding: 6px 18px !important;
+    height: auto !important;
+}
+
+.wcim-count {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Кнопки управления */
+.wcim-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.wcim-btn-mirror {
+    font-size: 14px !important;
+    padding: 6px 20px !important;
+    height: auto !important;
+}
+
+/* Прогресс */
+.wcim-progress {
+    margin-bottom: 20px;
+}
+
+.wcim-progress-bar {
+    background: #e0e0e0;
+    border-radius: 8px;
+    height: 14px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.wcim-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2271b1, #135e96);
+    border-radius: 8px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.wcim-progress-text {
+    font-size: 13px;
+    color: #444;
+}
+
+/* Результат */
+.wcim-result {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-left: 4px solid;
+}
+
+.wcim-result.success {
+    background: #edfaef;
+    border-color: #2e7d32;
+    color: #1b5e20;
+}
+
+.wcim-result.error {
+    background: #fdecea;
+    border-color: #c62828;
+    color: #7f0000;
+}
+
+/* Галерея */
+.wcim-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+/* Карточка изображения */
+.wcim-item {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    user-select: none;
+}
+
+.wcim-item:hover {
+    border-color: #aaa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.wcim-item.selected {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 3px rgba(34,113,177,0.2);
+}
+
+.wcim-item.mirrored-ok {
+    border-color: #2e7d32;
+}
+
+.wcim-item.mirrored-fail {
+    border-color: #c62828;
+}
+
+.wcim-item-img-wrap {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.wcim-item-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.15s;
+}
+
+.wcim-item:hover .wcim-item-img-wrap img {
+    transform: scale(1.04);
+}
+
+/* Чекбокс поверх фото */
+.wcim-checkbox {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 22px;
+    height: 22px;
+    background: rgba(255,255,255,0.92);
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 2;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.wcim-item.selected .wcim-checkbox {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+/* Бейдж статуса */
+.wcim-status-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 16px;
+    z-index: 2;
+    display: none;
+}
+
+.wcim-item.mirrored-ok   .wcim-status-badge { display: block; }
+.wcim-item.mirrored-fail .wcim-status-badge { display: block; }
+
+/* Имя файла */
+.wcim-item-name {
+    padding: 6px 8px;
+    font-size: 11px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: 1px solid #eee;
+}
+
+/* Спиннер */
+.wcim-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-top-color: #2271b1;
+    border-radius: 50%;
+    animation: wcim-spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes wcim-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ─── Кнопка предпросмотра ─── */
+.wcim-btn-preview {
+    font-size: 14px !important;
+    padding: 6px 20px !important;
+    height: auto !important;
+    background: #f0f6fc !important;
+    border-color: #2271b1 !important;
+    color: #2271b1 !important;
+}
+
+.wcim-btn-preview:hover {
+    background: #dbeafe !important;
+}
+
+/* ─── Шаг 2 — панель подтверждения ─── */
+.wcim-step2-bar {
+    background: #fff8e1;
+    border: 2px solid #f59e0b;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.wcim-step2-info {
+    font-size: 14px;
+    color: #78350f;
+    flex: 1;
+    min-width: 200px;
+}
+
+.wcim-step2-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.wcim-btn-apply {
+    font-size: 14px !important;
+    padding: 8px 24px !important;
+    height: auto !important;
+    background: #16a34a !important;
+    border-color: #15803d !important;
+}
+
+.wcim-btn-apply:hover {
+    background: #15803d !important;
+}
+
+.wcim-btn-cancel {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+    height: auto !important;
+    color: #666 !important;
+}
+
+/* ─── CSS-зеркало для предпросмотра ─── */
+.wcim-item.preview-mirror .wcim-item-img-wrap img {
+    transform: scaleX(-1);
+}
+
+.wcim-item.preview-mirror {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.25);
+}
+
+.wcim-item.preview-mirror .wcim-checkbox {
+    background: #f59e0b;
+    border-color: #d97706;
+    color: #fff;
+}
+
+/* Адаптация */
+@media (max-width: 600px) {
+    .wcim-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+    .wcim-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
